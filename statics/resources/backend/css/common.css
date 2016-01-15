@@ -131,20 +131,34 @@ span.required {
 }
 .area-select .select { float: left }
 .bs-docs-nav{
-	background-color: #1b99cd;
-    border-bottom: 3px solid #ff9600;
+    background-color: black;
+    /*border-bottom: 3px solid #ff9600;*/
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.15);
 }
 .bs-docs-nav .navbar-nav > li > a{
-    color: #afdbee;
+    color: #bbbbbbb;
+    font-weight: bolder;
+    font-size: 18px;
     padding-bottom: 12px;
+}
+.bs-docs-nav .navbar-nav > li.dropdown > a,.bs-docs-nav .navbar-nav > li.logout > a {
+    color: white;
+}
+.bs-docs-nav .navbar-nav > li.logout > a {
+    font-size: 12px;
 }
 .bs-docs-nav .navbar-nav > .active > a, 
 .bs-docs-nav .navbar-nav > .active > a:hover{
-	background-color: #1b99cd;
+    background-color: #1b99cd;
     color: #FFFFFF;
     border-bottom: 3px solid #ff9600;
+}
+
+.bs-docs-nav .navbar-nav > .active > a {
+    background-color: black;
+    color: #fffff;
+    border-bottom: none;
 }
 
 .bs-docs-nav .navbar-brand{
