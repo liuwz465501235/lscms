@@ -57,7 +57,7 @@ AppAsset::register($this);
                             </li>
                         </ul>
                     </li>
-                    <li class="logout">
+                    <li>
                         <?=  Html::a( LsYii::gT('退出登录') , Url::to(['site/logout']) , ['data-method'=>'post']);?>
                     </li>
                 </ul>
