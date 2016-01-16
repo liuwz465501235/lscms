@@ -9,6 +9,7 @@ use source\LsYii;
 use source\helpers\Html;
 use yii\bootstrap\Widget;
 use source\core\back\BackView;
+use source\libs\Resource;
 
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
@@ -17,6 +18,7 @@ $this->registerJs("$(function(){
 })" , BackView::POS_END);
 ?>
 <style type="text/css">
+    .wrapper {background: url(<?php echo Resource::getAdminLoginBackground();?>) no-repeat center center;}
     .wrapper .admin-title {text-align: center;font-weight: bolder;font-size: 30px;color: white;}
 </style>
 <div class="wrapper">

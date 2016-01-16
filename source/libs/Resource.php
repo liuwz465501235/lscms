@@ -169,5 +169,10 @@ class Resource
         }
         return $ret;
     }
+    
+    public static function getAdminLoginBackground()
+    {
+        return self::getAdminUrl('/images/bg2.jpg');
+    }
 
 }

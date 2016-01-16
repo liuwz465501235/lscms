@@ -71,7 +71,7 @@ body, input {
 }
 .admin-caphe label { float: left; }
 .admin-form ul li.admin-submit input {
-    width: 300px;
+    width: 282px;
     background-color: #e97400;
     color: #fff;
     font-size: 20px;
@@ -82,7 +82,7 @@ body, input {
     display: none;
     height: 46px;
     line-height: 46px;
-    width: 296px;
+    width: 282px;
     text-align: center;
     color: #e97400;
     border: 2px solid #E97400;
