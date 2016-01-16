@@ -56,6 +56,26 @@ class LsYii extends Yii
         $app = self::getApp();
         return $app->response;
     }
+    
+    /**
+     * 得到当前的控制器
+     * @return type
+     */
+    public static function getControllerId()
+    {
+        $app = self::getApp();
+        return $app->controller->id;
+    }
+    
+    /**
+     * 得到当前的方法
+     * @return type
+     */
+    public static function getActionId()
+    {
+        $app = self::getApp();
+        return $app->controller->action->id;
+    }
 
     /**
      * 返回请求路径

@@ -10,12 +10,12 @@ return [
         //配置缓存
         'cache' => [
             'class' => 'yii\caching\FileCache',
-            'cachePath'=>'@tmp/cache',
+            'cachePath'=>'@data/cache',
         ],
         //配置schema缓存
         'schemaCache' => [
             'class' => 'yii\caching\FileCache',
-            'cachePath'=>'@tmp/cache',
+            'cachePath'=>'@data/cache',
             'keyPrefix'=>'scheme_'
         ],
         //加密组件配置

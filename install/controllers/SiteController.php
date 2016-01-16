@@ -30,7 +30,7 @@ class SiteController extends InstallController
         {
             return parent::beforeAction($action);
         }
-        if( Common::checkIsInstalled() === true)
+        if( Common::checkIsInstalled() === true && $action->id !== 'complete')
         {
             return $this->redirect( ['site/stop'] );
         }
