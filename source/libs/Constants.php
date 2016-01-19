@@ -3,7 +3,7 @@
  * 系统常量表
  * @author Weizhong Liu <liuweizhong4655@gmail.com>
  * @since 1.0
- * @date 1/9/2016
+ * @date 1/16/2016
  */
 namespace source\libs;
 
@@ -54,9 +54,33 @@ class Constants
     
     //设置常用的路径
     const InstallFile_Url = 1;  //安装文件的路径
-    public static function getCommonUrl($key) {
+    public static function getCommonUrl($key = null) {
         $items = [
             self::InstallFile_Url => \Yii::getAlias('@data') . '/install.lock'
+        ];
+        return ArrayHelper::getItems($items, $key);
+    }
+    
+    //网站状态
+    const WebSite_Status_open = 1;  //开启
+    const WebSite_status_close = 0; //关闭
+    public static function getWebSiteStatus($key = null)
+    {
+        $items = [
+            self::WebSite_Status_open => '开启',
+            self::WebSite_status_close => '关闭'
+        ];
+        return ArrayHelper::getItems($items, $key);
+    }
+    
+    //菜单状态
+    const Menu_Status_Show = 1; //显示
+    const Menu_status_hide = 0; //隐藏
+    public static function getMenuStatus($key = null)
+    {
+        $items = [
+            self::Menu_Status_Show => '显示',
+            self::Menu_status_hide => '隐藏'
         ];
         return ArrayHelper::getItems($items, $key);
     }

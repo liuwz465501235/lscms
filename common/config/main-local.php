@@ -1,3 +1,3 @@
-<?php
-return [
-];
+<?php return array (
+  'language' => 'zh-CN',
+) ;?>

@@ -17,11 +17,6 @@ if (!YII_ENV_TEST) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class'=>'yii\gii\Module',
-        'generators'=>[
-            'lulumodule'=>'backend\gii\generators\lulumodule\Generator',
-            'lulumodel'=>'backend\gii\generators\lulumodel\Generator',
-            'lulucrud'=>'backend\gii\generators\lulucrud\Generator',
-        ],
     ];
 }
 

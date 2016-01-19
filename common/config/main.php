@@ -32,6 +32,13 @@ return [
                         'yii' => 'yii.php',
                     ],
                 ],
+                'field'=>[
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@common/messages',
+                    'fileMap' => [
+                        'field' => 'field.php',
+                    ],
+                ],
             ],
         ],
         //配置url路径

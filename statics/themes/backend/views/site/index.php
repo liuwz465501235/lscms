@@ -6,9 +6,6 @@ $this->params['breadcrumbs'] = [
 ];
 ?>
 <div class="container bs-docs-container">
-    <?php
-    
-    ?>
     <div class="row admin-index">
         <div class="col-md-6">
             <div class="panel panel-info">

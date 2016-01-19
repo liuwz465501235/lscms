@@ -1,4 +1,10 @@
 <?php
+/**
+ * 环境配置类
+ * @author Weizhong Liu<liuweizhong4655@gmail.com>
+ * @since 1.0
+ * @date 1/16/2016
+ */
 namespace source\libs;
 
 use source\LsYii;

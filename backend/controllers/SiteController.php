@@ -13,6 +13,7 @@ use source\LsYii;
  */
 class SiteController extends BackController
 {
+    public $topMenu = 3;
     /**
      * @inheritdoc
      */
@@ -34,6 +35,7 @@ class SiteController extends BackController
 
     public function actionIndex()
     {
+        $this->layout = 'admin';
         return $this->render('index');
     }
 

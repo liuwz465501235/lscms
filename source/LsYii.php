@@ -13,7 +13,7 @@ use yii;
 use yii\helpers\VarDumper;
 use yii\helpers\Url;
 use yii\data\Pagination;
-
+use common\models\Config;
 
 class LsYii extends Yii
 {
@@ -136,7 +136,7 @@ class LsYii extends Yii
         {
             $webPath .= $path;
         }
-        return $path;
+        return $webPath;
     }
     
     /**
@@ -173,6 +173,12 @@ class LsYii extends Yii
         }
     }
     
+    /**
+     * 得到视图中的参数值
+     * @param type $key
+     * @param type $defaultValue
+     * @return type
+     */
     public static function getViewParam($key , $defaultValue = null)
     {
         $view = self::getView();
@@ -182,6 +188,10 @@ class LsYii extends Yii
         return $defaultValue;
     }
     
+    /**
+     * 设置视图中的参数值
+     * @param type $array
+     */
     public static function setViewParam($array)
     {
         $view = self::getView();
@@ -190,6 +200,11 @@ class LsYii extends Yii
         }
     }
     
+    /**
+     * 是否存在get参数
+     * @param type $key
+     * @return type
+     */
     public static function hasGetValue($key)
     {
         return isset($_GET[$key]);
@@ -223,11 +238,22 @@ class LsYii extends Yii
         return $data;
     }
     
+    /**
+     * 是否存在post参数
+     * @param type $key
+     * @return type
+     */
     public static function hasPostValue($key)
     {
         return isset($_POST[$key]);
     }
     
+    /**
+     * 得到post值
+     * @param type $key
+     * @param type $defaultValue
+     * @return type
+     */
     public static function getPostValue($key , $defaultValue = null)
     {
         $data = $_POST;
@@ -250,22 +276,34 @@ class LsYii extends Yii
         }
         return $data;
     }
-        
+    
+    /**
+     * 得到flash值
+     * @param type $key
+     * @param type $default
+     * @return type
+     */
     public static function getFlash($key , $default=null) 
     {
         $app = self::getApp();
         $flash = $app->session->getFlash($key , $default);
         if($flash === null)
         {
-            $flash = [];
+            $flash = '';
         }
-        if(is_string($flash))
+        if(is_array($flash))
         {
-            $flash = [$flash];
+            $flash = $flash[0];
         }
         return $flash;
     }
     
+    /**
+     * 设置flash值
+     * @param type $key
+     * @param type $message
+     * @param type $append
+     */
     public static function setFlash($key , $message , $append=true) 
     {
         if($append) 
@@ -364,7 +402,7 @@ class LsYii extends Yii
         $identity = $app->user->identity;
         if(empty($identity))
         {
-            $identity = new \source\models\User();
+            $identity = new common\models\User();
         }
         return $identity;
     }
@@ -485,7 +523,8 @@ class LsYii extends Yii
         exit('<script>top.location.href="'.$url.'"</script>');
     }
     
-    public static function gT($message) {
-        return \Yii::t('app', $message);
+    public static function gT($message , $category='yii' , $params = [], $language = null)
+    {
+        return \Yii::t($category, $message , $params = [], $language = null);
     }
 }

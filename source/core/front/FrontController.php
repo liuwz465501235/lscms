@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * 前台控制器基类Controller
+ * @author Weizhong Liu<liuweizhong4655@gmail.com>
+ * @since 1.0
+ * @date 1/16/2016
+ */
 namespace source\core\front;
 
 use source\core\base\BaseController;

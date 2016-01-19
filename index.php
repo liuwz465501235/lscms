@@ -21,4 +21,9 @@ $config = yii\helpers\ArrayHelper::merge(
 //检测用户是否安装了程序
 Common::checkInstall($config);
 $app = new FrontApplication($config);
+//$curr_language = LsYii::getLang();
+//if($curr_language)
+//    $app->language = $curr_language;
+//else
+//    $app->language = 'zh-CN';
 $app->run();

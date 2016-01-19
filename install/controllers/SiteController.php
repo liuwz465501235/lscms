@@ -356,7 +356,7 @@ class SiteController extends InstallController
         $email = LsYii::getPostValue('email');
 
         $tbPre = $db->tablePrefix;
-        $user = new \source\models\User();
+        $user = new \common\models\User();
         $user->scenario = 'create';
         $user->username = $username;
         $user->password = $password;
