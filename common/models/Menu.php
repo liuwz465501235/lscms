@@ -5,7 +5,8 @@ namespace common\models;
 use Yii;
 use source\LsYii;
 use source\libs\Pinying;
-use \source\libs\Constants;
+use source\libs\Constants;
+use source\helpers\Url;
 
 /**
  * This is the model class for table "{{%menu}}".
@@ -133,5 +134,73 @@ class Menu extends \source\core\base\BaseActiveRecord
             $items[] = $item;
         }
         return $items;
+    }
+    
+    /**
+     * 得到后台侧边的菜单栏
+     */
+    public static function getSideMenu()
+    {
+        $html = '';
+        $topMenu = LsYii::getApp()->controller->topMenu;
+        if(!isset($topMenu) || empty($topMenu))
+            return $topMenu;
+        //查询三级菜单
+        $menus = self::getMenuArray($topMenu, 3);
+        if($menus) {
+            $html .= '<div class="sidebar">';
+            $html .= '<div id="subnav" class="subnav">';
+            foreach($menus as $menu)
+            {
+                $html .= '<h3><i class="icon"></i>'. $menu->name .'</h3>';
+                //查询四级子菜单
+                $childMenus = self::getMenuArray($menu->id, 4);
+                if($childMenus)
+                {
+                    $html .= '<ul class="side-sub-menu subnav-off">';
+                    foreach($childMenus as $childMenu)
+                    {
+                        if(LsYii::getApp()->controller->sideMenu == $childMenu->id)
+                            $class = 'class="active"';
+                        else
+                            $class = '';
+                        $html .= '<li '.$class.'><a class="item" href="'. Url::to([$childMenu->url]) .'">'. $childMenu->name .'</a></li>';
+                    }
+                    $html .= '</ul>';
+                }
+            }
+            $html .= '</div>';
+            $html .= '</div>';
+        }
+        return $html;
+    }
+    
+    /**
+     * 获取每一级菜单的数组
+     * @param type $pid
+     * @param type $level
+     * @return type
+     */
+    public static function getMenuArray($pid , $level)
+    {
+        return self::find()->andWhere(['`pid`'=>$pid , '`level`'=>$level])->addOrderBy('`sort` ASC')->all();
+    }
+    
+    /**
+     * 得到菜单项
+     * @param type $id
+     * @return type
+     */
+    public static function getMenu($id = null)
+    {
+        if($id === null)
+        {
+            $model = Menu::find()->all();
+        }
+        else
+        {
+            $model = Menu::findOne(['id'=>$id]);
+        }
+        return $model;
     }
 }

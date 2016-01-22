@@ -55,6 +55,11 @@ class BackController extends BaseController
         ];
     }
     
+    /**
+     * 设置菜单属性
+     * @param type $sideMenu
+     * @param type $lastBreadcrumb
+     */
     public function setMenus($sideMenu , $lastBreadcrumb)
     {
         $this->sideMenu = $sideMenu;

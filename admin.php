@@ -19,5 +19,9 @@ $config = yii\helpers\ArrayHelper::merge(
 );
 //检测用户是否安装了程序
 Common::checkInstall($config);
+
+
+
 $application = new BackApplication($config);
+\source\core\back\BackView::setTheme();
 $application->run();

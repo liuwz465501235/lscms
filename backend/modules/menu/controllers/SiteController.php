@@ -16,6 +16,7 @@ use source\libs\Message;
  */
 class SiteController extends BackController
 {
+    public $topMenu = 27;
     public function behaviors()
     {
         return [
@@ -34,6 +35,7 @@ class SiteController extends BackController
      */
     public function actionIndex()
     {
+        $this->setMenus(29, "菜单管理");
         $searchModel = new MenuSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -44,24 +46,13 @@ class SiteController extends BackController
     }
 
     /**
-     * Displays a single Menu model.
-     * @param string $id
-     * @return mixed
-     */
-    public function actionView($id)
-    {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
      * Creates a new Menu model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
+        $this->setMenus(29, "添加新菜单");
         $model = new Menu();
         $id = LsYii::getGetValue('id' , null);
         if($id)
@@ -118,6 +109,7 @@ class SiteController extends BackController
      */
     public function actionUpdate($id)
     {
+        $this->setMenus(29, "修改菜单项");
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -137,6 +129,7 @@ class SiteController extends BackController
      */
     public function actionDelete($id)
     {
+        $this->setMenus(29, "删除菜单");
         $model = $this->findModel($id);
         //判断是否有子项
         if(Menu::findAll(['pid'=>$id])) 

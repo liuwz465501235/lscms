@@ -18,4 +18,7 @@ return [
     'Seo Keywords'=>'SEO关键字',
     'Seo Description'=>'SEO描述',
     'Seo Head'=>'其它头信息',
+    'Home Theme'=>'前台主题',
+    'Admin Theme'=>'后台主题',
+    'Allow Register'=>'允许注册',
 ];

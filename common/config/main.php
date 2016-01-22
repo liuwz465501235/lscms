@@ -41,6 +41,10 @@ return [
                 ],
             ],
         ],
+        //配置模块组件
+        'modularityService' => [
+            'class' => 'source\modules\modularity\ModularityService',
+        ],
         //配置url路径
 //        'urlManager' => [      
 //            'enablePrettyUrl' => true,      

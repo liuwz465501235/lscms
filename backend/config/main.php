@@ -12,8 +12,8 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [
-        'menu' => [
-            'class' => 'backend\modules\menu\MenuModule',
+        'menu'=>[
+            'class'=>'backend\modules\menu\MenuModule'
         ],
     ],
     'components' => [
@@ -34,12 +34,11 @@ return [
             'errorAction' => 'site/error',
         ],
         'view'=>[
-            'theme'=>[
-                'pathMap'=>[
-                    '@backend/views'=>'@statics/themes/backend/views'
-                ]
-            ],
+            'class'=>'source\core\back\BackView'
         ],
+        'modularityService'=>[
+            'class'=>'source\modules\modularity\modularityService'
+        ]
     ],
     'params' => $params,
 ];

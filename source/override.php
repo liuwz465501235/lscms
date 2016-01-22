@@ -11,3 +11,4 @@ Yii::$classMap['\yii\helpers\HtmlPurifier'] = '@source/helpers/HtmlPurifier.php'
 Yii::$classMap['\yii\helpers\FileHelper'] = '@source/helpers/FileHelper.php';
 Yii::$classMap['\yii\helpers\VarDumper'] = '@source/helpers/VarDumper.php';
 Yii::$classMap['\yii\helpers\Url'] = '@source/helpers/Url.php';
+Yii::$classMap['\yii\helpers\StringHelper'] = '@source\helpers\StringHelper';

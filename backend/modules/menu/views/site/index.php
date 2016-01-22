@@ -11,7 +11,6 @@ use common\models\Menu;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = '菜单管理';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <?=\source\libs\Message::getSuccessMessage();?>
 <?=\source\libs\Message::getErrorMessage();?>
@@ -25,10 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
 </div>
 <div class="menu-index">
     <?php
-    $root = null;
-    $pid = 0;
     echo TreeView::widget([
-        'data'=>Menu::getTreeData($root , $pid , true , false , [
+        'data'=>Menu::getTreeData(null , 0 , true , false , [
             'updateUrl'=>'/menu/site/update',
             'addChildrenUrl'=>'/menu/site/create',
             'deleteUrl'=>'/menu/site/delete',

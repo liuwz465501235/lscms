@@ -11,5 +11,10 @@ use source\core\base\BaseApplication;
 
 class BackApplication extends BaseApplication
 {
-    //put your code here
+    public function init()
+    {
+        parent::init();
+        $this->loadActiveModules(true);
+        $this->layout = 'main';
+    }
 }

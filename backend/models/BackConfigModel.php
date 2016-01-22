@@ -10,6 +10,7 @@ namespace backend\models;
 use source\LsYii;
 use source\core\back\BackModel;
 use common\models\Config;
+use source\helpers\FileHelper;
 
 class BackConfigModel extends BackModel
 {
@@ -62,9 +63,9 @@ class BackConfigModel extends BackModel
                 }
             }
             if($key == 'site_language')
-            {   //设置配置文件
+            {   //写入语言的配置文件
                 $configFile = LsYii::getWebPath('/common/config/main-local.php');
-                \source\helpers\FileHelper::writeConfig($configFile, ['language'=>$value]);
+                FileHelper::writeConfig($configFile, ['language'=>$value]);
             }
         }
         return true;

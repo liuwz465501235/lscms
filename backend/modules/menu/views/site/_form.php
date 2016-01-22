@@ -6,6 +6,7 @@ use source\core\widgets\ActiveForm;
 use source\libs\Constants;
 use source\libs\Resource;
 use common\models\Menu;
+use source\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Menu */
@@ -44,10 +45,11 @@ $this->registerJsFile( Resource::getAdminUrl('/js/bootstrap-smartsearch.js') , [
 
     <?= $form->field($model, 'sort')->textInput() ?>
 
-    <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? LsYii::gT('添加') : LsYii::gT('修改') , ['class' => 'btn btn-primary center-block']) ?>
-    </div>
-
+    <?php 
+        $submitText = $model->isNewRecord ? "新建" : "修改";
+        $closeLink = Url::to(['/menu/site/index']);
+        Html::SubmitButtons($submitText, $closeLink);
+    ?>
     <?php ActiveForm::end(); ?>
 
 </div>

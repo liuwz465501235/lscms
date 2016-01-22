@@ -14,6 +14,7 @@ use yii\helpers\VarDumper;
 use yii\helpers\Url;
 use yii\data\Pagination;
 use common\models\Config;
+use source\core\modularity\ModuleService;
 
 class LsYii extends Yii
 {
@@ -506,25 +507,40 @@ class LsYii extends Yii
         return $ret;
     }
     
-//    public static function getService($id)
-//    {
-//        $id=$id.'Service';
-//    $component = self::$app->get($id,true);
-//        if( $component instanceof ModuleService)
-//        {
-//            return  $component;
-//        }
-//        InvalidParamException("get service:$id");
-//    }
+    public static function getService($id)
+    {
+        $id=$id.'Service';
+        $component = self::$app->get($id,true);
+        if( $component instanceof ModuleService)
+        {
+            return  $component;
+        }
+        InvalidParamException("get service:$id");
+    }
     
     public static function go($url)
     {
         $url=Url::to($url);
         exit('<script>top.location.href="'.$url.'"</script>');
     }
-    
+    /**
+     * 语言输出
+     * @param type $message
+     * @param type $category
+     * @param array $params
+     * @param type $language
+     * @return type
+     */
     public static function gT($message , $category='yii' , $params = [], $language = null)
     {
         return \Yii::t($category, $message , $params = [], $language = null);
+    }
+    /**
+     * 获取网站名
+     * @return type
+     */
+    public static function getName()
+    {
+        return LsYii::getApp()->name;
     }
 }

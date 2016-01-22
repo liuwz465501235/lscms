@@ -30,8 +30,7 @@ class Resource
      */
     public static function getAdminTheme()
     {
-//        $theme = Common::getConfigValue('sys_theme_admin');
-        $theme = 'backend';
+        $theme = Common::getConfigValue('admin_theme');
         return $theme;
     }
 
@@ -40,20 +39,19 @@ class Resource
      */
     public static function getHomeTheme()
     {
-//        $theme = Common::getConfigValue('sye_theme_home');
-        $theme = 'frontend';
+        $theme = Common::getConfigValue('thome_heme');
         return $theme;
     }
 
     /**
      * 得到安装程序的主题路径
      */
-    public static function getInstallTheme()
-    {
-//        $theme = Common::getConfigValue('sye_theme_home');
-        $theme = 'install';
-        return $theme;
-    }
+//    public static function getInstallTheme()
+//    {
+////        $theme = Common::getConfigValue('sye_theme_home');
+//        $theme = 'install';
+//        return $theme;
+//    }
 
     /**
      * 得到前台模块静态资源的路径
@@ -177,7 +175,7 @@ class Resource
     
     public static function getAdminLoginBackground()
     {
-        return self::getAdminUrl('/images/bg2.jpg');
+        return self::getAdminUrl('/default/images/bg2.jpg');
     }
 
 }

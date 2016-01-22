@@ -13,8 +13,18 @@ use yii\helpers\VarDumper;
 use yii\helpers\Url;
 use yii\data\Pagination;
 use yii\web\Cookie;
+use source\LsYii;
 
 trait CommonTrait 
 {
-    
+    public function __get($name)
+    {
+        $dot = strpos($name, "Service");
+        if($dot > 0)
+        {
+            $serviceName = substr($name, 0 , $dot);
+            return LsYii::getService($serviceName);
+        }
+        return parent::__get($name);
+    }
 }

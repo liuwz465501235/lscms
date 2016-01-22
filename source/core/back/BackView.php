@@ -10,7 +10,9 @@ namespace source\core\back;
 use source\core\base\BaseView;
 use source\LsYii;
 use source\libs\Resource;
-use source\core\base\Theme;
+use yii\base\Theme;
+use common\models\Menu;
+use source\helpers\Url;
 
 
 class BackView extends BaseView
@@ -21,5 +23,47 @@ class BackView extends BaseView
     }
     
     public static function setTheme() {
+        $currentTheme = Resource::getAdminTheme();
+        $config = [
+            'pathMap' => [
+                '@backend/views'=>[
+                    "@statics/themes/backend/{$currentTheme}/views"
+                ],
+            ], 
+            'baseUrl' => "@statics/themes/backend/{$currentTheme}"
+        ];
+        LsYii::getView()->theme = new Theme($config);
+    }
+    
+    /**
+     * 生成面包屑
+     * @return type
+     */
+    public static function createBreadcrumbs()
+    {
+        $topMenu = LsYii::getApp()->controller->topMenu;
+        $sideMenu = LsYii::getApp()->controller->sideMenu;
+        $lastBreadcrumb = LsYii::getApp()->controller->lastBreadcrumb;
+        
+        if($topMenu)
+            $tModel = Menu::getMenu($topMenu);  //后台一级菜单
+        if($sideMenu)
+            $sModel = Menu::getMenu($sideMenu); //后台三级菜单
+        //获取其中的二级菜单
+        if(isset($sModel) && !empty($sModel))
+            $mModel = Menu::getMenu($sModel->pid);  //获取二级菜单
+        if(isset($tModel) && !empty($sModel))
+            $tBreadcrumbs = ['label'=>$tModel->name , 'url'=>[$tModel->url]];
+        if(isset($mModel) && !empty($mModel))
+            $mBreadcrumbs = ['label'=>$mModel->name , 'url'=>[$mModel->url]];
+        if(isset($sModel) && !empty($sModel))
+            $sBreadcrumbs = ['label'=>$sModel->name , 'url'=>[$sModel->url]];
+        $lBreadcrumbs = ['label'=>$lastBreadcrumb];
+        $arr[] = isset($tBreadcrumbs) ? $tBreadcrumbs : "";
+        $arr[] = isset($mBreadcrumbs) ? $mBreadcrumbs : "";
+        $arr[] = isset($sBreadcrumbs) ? $sBreadcrumbs : "";
+        $arr[] = isset($lastBreadcrumb) ? ['label'=> LsYii::gT($lastBreadcrumb) ] : "";
+        $arr = array_filter($arr);
+        return $arr;
     }
 }

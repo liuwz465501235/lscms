@@ -51,12 +51,12 @@ class Message
         $flash = LsYii::getFlash('error');
         if(!empty($flash))
         {
-            $message = Html::beginTag('div' , ['class'=>'alert alert-warning alert-dismissible fade in' , 'role'=>'alert']);
+            $message = Html::beginTag('div' , ['class'=>'alert alert-danger alert-dismissible fade in' , 'role'=>'alert']);
             $message .= $flash;
             $message .= Html::endTag('div');
             LsYii::getView()->registerJs("$(function(){
                 setTimeout(function(){
-                    $('div.alert-warning').remove();
+                    $('div.alert-danger').remove();
                 } , 3000);
             })" , BackView::POS_END);
         }

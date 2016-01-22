@@ -35,6 +35,7 @@ class SiteController extends BackController
 
     public function actionIndex()
     {
+        $this->setMenus(null, "首页");
         $this->layout = 'admin';
         return $this->render('index');
     }
@@ -71,14 +72,6 @@ class SiteController extends BackController
         ]);
     }
     
-//    public function actionError()
-//    {
-//        if(\Yii::$app->errorHandler)
-//        {
-//            
-//        }
-//    }
-
     public function actionLogout()
     {
         Yii::$app->user->logout();
