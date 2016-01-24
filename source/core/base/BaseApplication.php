@@ -10,8 +10,9 @@ namespace source\core\base;
 use source\LsYii;
 use source\helpers\ArrayHelper;
 use yii\web\Application;
-use common\models\Config;
+use source\models\Config;
 use source\traits\CommonTrait;
+use source\helpers\FileHelper;
 
 class BaseApplication extends Application
 {
@@ -42,5 +43,27 @@ class BaseApplication extends Application
         $moduleManager = $this->modularityService;
         
         $this->activeModules = $moduleManager->getActiveModules($isAdmin);
+        
+//        \source\helpers\VarDumper::dump($this->activeModules);die;
+        
+        $module = $isAdmin ? "admin\AdminModule" : "home\HomeModule";
+        foreach($this->activeModules as $m)
+        {
+            $moduleId = $m['id'];
+            $moduleDir = $m['dir'];
+            $ModuleClassName = $m['dirClass'];
+            
+            $this->setModule($moduleId, [
+                'class' => 'source\modules\\' . $moduleDir . '\\' . $module
+            ]);
+            
+            $serviceFile = LsYii::getAlias('@source') . '\modules\\' . $moduleDir . '\\' . $ModuleClassName . 'Service.php';
+            if (FileHelper::exist($serviceFile))
+            {
+                $serviceClass = 'source\modules\\' . $moduleDir . '\\' . $ModuleClassName . 'Service';
+                $serviceInstance = new $serviceClass();
+                $this->set($serviceInstance->getServiceId(), $serviceInstance);
+            }
+        }
     }
 }

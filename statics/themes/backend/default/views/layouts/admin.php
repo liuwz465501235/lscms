@@ -36,7 +36,7 @@ AppAsset::registerDefault();
                         'options'=>[
                             'class'=>'nav navbar-nav'
                         ],
-                        'items'=>  \common\models\Menu::getTopMenu()
+                        'items'=> \source\models\Menu::getTopMenu()
                     ]);
                 ?>              
                 <ul class="nav navbar-nav navbar-right">

@@ -10,6 +10,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
+use source\models\Menu;
 
 AppAsset::registerBasic();
 ?>
@@ -40,7 +41,7 @@ AppAsset::registerBasic();
                         'options'=>[
                             'class'=>'nav navbar-nav'
                         ],
-                        'items'=>  \common\models\Menu::getTopMenu()
+                        'items'=>Menu::getTopMenu()
                     ]);
                 ?>
                 <ul class="nav navbar-nav navbar-right">
@@ -69,7 +70,7 @@ AppAsset::registerBasic();
                     <div class="bs-sidebar hidden-print affix-top">
                         <?php
                             $topMenu = LsYii::getApp()->controller->topMenu;
-                            $menus = \common\models\Menu::getMenuArray($topMenu, 3);
+                            $menus = Menu::getMenuArray($topMenu, 3);
                             $html = '';
                             if($menus) {
                                 $html .= '<ul class="nav bs-sidenav" style="height:567px">';
@@ -77,7 +78,7 @@ AppAsset::registerBasic();
                                 {
                                     $html .= '<li class="active"><a href="javascript:void(0)"> '. $menu->name .' </a></li>';
                                     //查询四级子菜单
-                                    $childMenus = \common\models\Menu::getMenuArray($menu->id, 4);
+                                    $childMenus = Menu::getMenuArray($menu->id, 4);
                                     if($childMenus)
                                     {
                                         $html .= '<ul class="nav">';

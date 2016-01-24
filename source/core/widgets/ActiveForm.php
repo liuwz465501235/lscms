@@ -13,6 +13,13 @@ use source\libs\Common;
 
 class ActiveForm extends \yii\widgets\ActiveForm
 {
+    /**
+     * 重写输入框
+     * @param type $model
+     * @param type $attribute
+     * @param type $options
+     * @return type
+     */
     public function field($model, $attribute, $options = array())
     {
         if(empty($options))
@@ -24,5 +31,4 @@ class ActiveForm extends \yii\widgets\ActiveForm
         }
         return parent::field($model, $attribute, $options);
     }
-    
 }

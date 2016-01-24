@@ -11,7 +11,7 @@ use source\core\base\BaseView;
 use source\LsYii;
 use source\libs\Resource;
 use yii\base\Theme;
-use common\models\Menu;
+use source\models\Menu;
 use source\helpers\Url;
 
 

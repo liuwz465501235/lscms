@@ -66,4 +66,27 @@ class Message
         }
         return $message;
     }
+    
+    /**
+     * 向页页面输入消息
+     * @param type $type
+     * @return type
+     */
+    public static function getMessage($type='all')
+    {
+        if($type == 'all')
+        {
+            $message = self::getSuccessMessage();
+            $message .= self::getErrorMessage();
+        }
+        else if($type == 'success')
+        {
+            $message = self::getSuccessMessage();
+        }
+        else if($type == 'error')
+        {
+            $message = self::getErrorMessage();
+        }
+        return $message;
+    }
 }

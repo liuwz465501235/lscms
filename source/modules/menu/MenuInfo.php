@@ -18,8 +18,8 @@ class MenuInfo extends \source\core\modularity\ModuleInfo
         parent::init();
         
         $this->id='menu';
-        $this->name = 'Menu Module';
+        $this->name = '菜单管理';
         $this->version = '1.0';
-        $this->description = 'Menu description';
+        $this->description = '提供所有的菜单功能支持';
     }
 }

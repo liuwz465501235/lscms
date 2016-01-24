@@ -9,11 +9,11 @@
 
 namespace source;
 
-use yii;
+use Yii;
 use yii\helpers\VarDumper;
 use yii\helpers\Url;
 use yii\data\Pagination;
-use common\models\Config;
+use source\models\Config;
 use source\core\modularity\ModuleService;
 
 class LsYii extends Yii
@@ -312,7 +312,7 @@ class LsYii extends Yii
             $flash = self::getFlash($key);
             if(is_string($message))
             {
-                $flash[] = $message;
+                $flash = $message;
             }
             else if (is_array($message))
             {
@@ -533,7 +533,7 @@ class LsYii extends Yii
      */
     public static function gT($message , $category='yii' , $params = [], $language = null)
     {
-        return \Yii::t($category, $message , $params = [], $language = null);
+        return self::t($category, $message , $params = [], $language = null);
     }
     /**
      * 获取网站名

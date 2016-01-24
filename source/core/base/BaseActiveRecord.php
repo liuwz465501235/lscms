@@ -111,4 +111,32 @@ class BaseActiveRecord extends ActiveRecord
         }
         return $data;
     }
+    
+    public static function getItemsInternal($model , $defaultId , $url)
+    {
+        if(empty($model))
+        {
+            return [];
+        }
+        $data = [];
+        foreach($model as $m)
+        {
+            if($m->if_delete == \source\libs\Constants::If_Delete_Allow)
+            {
+                $label = '<span style="float:left;margin-right:5px;">'.$m->name.'</span>';
+                $label .= '<span class="glyphicon glyphicon-remove attribute-remove" menu-id="2" style="float:left;margin-top:-5px;display:none;"></span>';
+            }
+            else
+            {
+                $label = $m->name;
+            }
+            $data[] = [
+                'label'=>$label,
+                'active'=>$m->id == $defaultId ? true : false,
+                'encode'=>false,
+                'url'=>[$url , 'id'=>$m->id],
+            ];
+        }
+        return $data;
+    }
 }

@@ -179,6 +179,9 @@ span.required {
 	width: auto;
         height: 100%;
 }
+/*.container {
+    width: 1149px;
+}*/
 .navbar.bs-docs-nav{ margin-bottom: 0; }
 .breadcrumb > a:hover {text-decoration: none;}
 .breadcrumb > a:after {
@@ -543,8 +546,12 @@ a.btn{ padding: 4px 12px 5px;}
     height: 34px;
     line-height: 34px;
 }
-
-
+.container .tab-content{
+    margin-top: 10px;
+}
+.nav-tabs li , .nav-tabs li a {
+    height: 40px;
+}
 
 
 

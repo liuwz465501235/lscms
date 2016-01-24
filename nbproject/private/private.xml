@@ -3,12 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/phpserver/webroot/lscms/admin.php</file>
-            <file>file:/F:/phpserver/webroot/lscms/source/core/base/BaseApplication.php</file>
-            <file>file:/F:/phpserver/webroot/lscms/source/core/base/Theme.php</file>
-            <file>file:/F:/phpserver/webroot/lscms/backend/config/main.php</file>
-            <file>file:/F:/phpserver/webroot/lscms/source/core/back/BackApplication.php</file>
-            <file>file:/F:/phpserver/webroot/lscms/source/core/back/BackView.php</file>
+            <file>file:/F:/phpserver/webroot/lscms/common/messages/zh-CN/field.php</file>
+            <file>file:/F:/phpserver/webroot/lscms/source/modules/dict/admin/views/default/create.php</file>
+            <file>file:/F:/phpserver/webroot/lscms/source/modules/dict/admin/controllers/DefaultController.php</file>
+            <file>file:/F:/phpserver/webroot/lscms/vendor/yiisoft/yii2/helpers/BaseArrayHelper.php</file>
+            <file>file:/F:/phpserver/webroot/lscms/common/messages/en/field.php</file>
+            <file>file:/F:/phpserver/webroot/lscms/source/models/Category.php</file>
+            <file>file:/F:/phpserver/webroot/lscms/source/modules/dict/admin/views/default/_form.php</file>
+            <file>file:/F:/phpserver/webroot/lscms/source/models/Dict.php</file>
         </group>
     </open-files>
 </project-private>

@@ -18,9 +18,9 @@ if (!YII_ENV_TEST) {
     $config['modules']['gii'] = [
         'class'=>'yii\gii\Module',
         'generators'=>[
-            'lulumodule'=>'backend\gii\generators\lscmsmodule\Generator',
-            'lulumodel'=>'backend\gii\generators\lscmsmodel\Generator',
-            'lulucrud'=>'backend\gii\generators\lscmscrud\Generator',
+            'lsmodule'=>'backend\gii\generators\lscmsmodule\Generator',
+//            'lulumodel'=>'backend\gii\generators\lscmsmodel\Generator',
+//            'lulucrud'=>'backend\gii\generators\lscmscrud\Generator',
         ],
     ];
 }

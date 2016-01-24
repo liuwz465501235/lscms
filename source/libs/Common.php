@@ -54,7 +54,7 @@ class Common
      */
     public static function getConfigValue($key, $fromCache = true)
     {
-        return \common\models\Config::getConfig($key);
+        return \source\models\Config::getConfig($key);
     }
 
     /**

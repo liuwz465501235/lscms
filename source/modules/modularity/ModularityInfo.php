@@ -18,8 +18,9 @@ class ModularityInfo extends \source\core\modularity\ModuleInfo
         parent::init();
         
         $this->id='modularity';
-        $this->name = 'Modularity Module';
+        $this->name = '模块管理';
         $this->version = '1.0';
-        $this->description = 'Modularity description';
+        $this->description = '用来对系统中的模块进行管理';
+        $this->is_system = 1;
     }
 }

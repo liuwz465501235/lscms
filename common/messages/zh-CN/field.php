@@ -21,4 +21,16 @@ return [
     'Home Theme'=>'前台主题',
     'Admin Theme'=>'后台主题',
     'Allow Register'=>'允许注册',
+    'Datetime Timezone'=>'时区',
+    'Datetime Date Format'=>'日期格式',
+    'Datetime Time Format'=>'时间格式',
+    'ID'=>'ID',
+    'Parent'=>'父级',
+    'Category'=>'所属分类',
+    'Name'=>'名称',
+    'Value'=>'值',
+    'Description'=>'描述',
+    'Thumb'=>'缩略图',
+    'Status'=>'状态',
+    'Sort'=>'排序'
 ];

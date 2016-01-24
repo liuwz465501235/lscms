@@ -12,9 +12,11 @@ use yii\web\Controller;
 use yii\base\Component;
 use yii\base\View;
 use yii\web\Response;
+use source\traits\CommonTrait;
 
 class BaseController extends Controller
 {
+    use CommonTrait;
     public function actions()
     {
         return [
