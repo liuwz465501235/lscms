@@ -2,8 +2,8 @@
 $db = require(__DIR__ . '/db.php');
 $rules = require(__DIR__ . '/rules.php');
 return [
-    'language'=>'zh-CN',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+    'runtimePath'  => dirname(dirname(__DIR__)) . '/data/runtime',
     'components' => [
         //配置数据库
         'db'=>$db,
@@ -51,11 +51,11 @@ return [
             'class' => 'source\modules\modularity\ModularityService',
         ],
         //配置url路径
-//        'urlManager' => [      
-//            'enablePrettyUrl' => true,      
-//            'showScriptName' => false,     
-//            'suffix'=>'.html',
-//            'rules'=>$rules,
-//        ],
+        'urlManager' => [      
+            'enablePrettyUrl' => true,      
+            'showScriptName' => false,     
+            'suffix'=>'.html',
+            'rules'=>$rules,
+        ],
     ],
 ];
