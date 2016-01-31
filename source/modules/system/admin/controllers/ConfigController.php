@@ -118,7 +118,7 @@ class ConfigController extends BackController
      */
     public function actionDatetime()
     {
-        $this->setMenus(10, "时间设置");
+        $this->setMenus(58, "时间设置");
         $model = new DatetimeConfig();
         if($model->load( LsYii::getRequest()->post() ))
         {

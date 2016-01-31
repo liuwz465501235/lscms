@@ -121,6 +121,18 @@ class Constants
         return ArrayHelper::getItems($items, $key);
     }
     
+    //是否是系统配置
+    const Is_System_Yes = 1;    //是系统配置
+    const Is_System_No = 0; //非系统配置
+    public static function getIsSystem($key = null)
+    {
+        $item = [
+            self::Is_System_Yes => '是',
+            self::Is_System_No => '非',
+        ];
+        return ArrayHelper::getItems($items, $key);
+    }
+    
     //字典状态
     const Dict_Status_Enable = 1;   //可用
     const Dict_Status_Deable = 0;   //禁用
@@ -129,6 +141,18 @@ class Constants
         $items = [
             self::Dict_Status_Enable => '可用',
             self::Dict_Status_Deable => '禁用'
+        ];
+        return ArrayHelper::getItems($items, $key);
+    }
+    
+    //第三方登录的状态
+    const Third_Login_Status_Open = 1;  //开启
+    const Third_Login_Status_Close = 0; //关闭
+    public static function getThirdLoginStatus($key = null)
+    {
+        $items = [
+            self::Third_Login_Status_Open => '开启',
+            self::Third_Login_Status_Close => '关闭'
         ];
         return ArrayHelper::getItems($items, $key);
     }

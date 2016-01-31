@@ -3,11 +3,13 @@
 namespace source\modules\user\admin\controllers;
 
 use Yii;
+use source\LsYii;
 use source\models\User;
 use source\models\search\UserSearch;
 use source\core\back\BackController;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use source\modules\rbac\models\Role;
 
 /**
  * MemberController implements the CRUD actions for User model.
@@ -35,6 +37,7 @@ class MemberController extends BackController
     {
         $this->setMenus(16, "注册会员管理");
         $searchModel = new UserSearch();
+        LsYii::setGetValue('role', Role::Category_Member );
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -62,10 +65,11 @@ class MemberController extends BackController
      */
     public function actionCreate()
     {
+        $this->setMenus(16, "添加注册会员");
         $model = new User();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,

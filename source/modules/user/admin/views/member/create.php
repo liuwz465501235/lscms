@@ -1,19 +1,21 @@
 <?php
-
-use yii\helpers\Html;
+use source\LsYii;
+use source\helpers\Html;
+use source\models\User;
 
 
 /* @var $this yii\web\View */
 /* @var $model source\models\User */
 
-$this->title = 'Create User';
-$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = '新建注册会员';
 ?>
+<?=source\libs\Message::getMessage();?>
+<div class="page-header">
+    <h3>
+        <strong><?=Html::encode($this->title)?></strong>
+    </h3>
+</div>
 <div class="user-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>

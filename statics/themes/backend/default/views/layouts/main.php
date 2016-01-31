@@ -34,7 +34,7 @@ AppAsset::registerDefault();
         <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav">
             <div class="container bs-docs-container clear">
                 <div class="navbar-header">
-                    <?=Html::a(LsYii::getApp()->name, Url::to(['site/index']), ['class'=>'navbar-brand'])?>
+                    <?=Html::a(LsYii::getApp()->name, Url::to(['/site/index']), ['class'=>'navbar-brand'])?>
                 </div>
                 <?php
                     echo Nav::widget([
@@ -58,7 +58,7 @@ AppAsset::registerDefault();
                         </ul>
                     </li>
                     <li>
-                        <?=  Html::a( LsYii::gT('退出登录') , Url::to(['site/logout']) , ['data-method'=>'post']);?>
+                        <?=  Html::a( LsYii::gT('退出登录') , Url::to(['/site/logout']) , ['data-method'=>'post']);?>
                     </li>
                 </ul>
             </div>

@@ -210,6 +210,12 @@ class LsYii extends Yii
     {
         return isset($_GET[$key]);
     }
+    
+    public static function setGetValue($key , $value)
+    {
+        $_GET[$key] = $value;
+        return $_GET;
+    }
 
     /**
      * 

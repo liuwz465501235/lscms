@@ -18,6 +18,11 @@ return [
             'cachePath'=>'@data/cache',
             'keyPrefix'=>'scheme_'
         ],
+        //assets配置
+        'assetManager'=>[
+            'basePath'=>'@webroot/statics/assets',
+            'baseUrl'=>'@web/statics/assets'
+        ],
         //加密组件配置
         'security' => [
             'class' => 'source\core\base\Security',

@@ -18,8 +18,10 @@ class RbacInfo extends \source\core\modularity\ModuleInfo
         parent::init();
         
         $this->id='rbac';
-        $this->name = 'Rbac Module';
+        $this->name = '权限控制模块';
         $this->version = '1.0';
-        $this->description = 'Rbac description';
+        $this->description = '管理站点的各项权限，如控制器权限、系统权限等';
+        
+        $this->is_system = 1;
     }
 }
